@@ -1,0 +1,99 @@
+<html>
+<head>
+</head>
+    <script src="result.js">
+</script>
+<title>Student Marks</title>
+</head>
+<body>
+<center>
+<h2><center>MarkSheet Form<center></h2>
+<form action="" method="post" id="form1" name="frm">
+<table>
+    <tr>
+        <td>Roll No.</td>
+        <td><input type="number" size="3" name="roll" required /></td>
+    </tr>
+       <tr>
+        <td>Student Name</td>
+        <td><input type="text" size="5" name="student" required/></td>
+    </tr>
+    <tr>
+        <td> Stream </td>
+        <td><select name="stream" required>
+        <option value="arts">Arts</option>
+        <option value="elec">Electronics</option>
+        <option value="gen">Computer</option>
+        </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Subject1</td>
+        <td><input type="number" size="5" name="sub1" required/></td>
+    </tr>
+    <tr>
+        <td>Subject2</td>
+        <td><input type="number" size="5" name="sub2" required/></td>
+        
+    </tr>
+    <tr>
+        <td>Subject3</td>
+        <td><input type="number" size="5" name="sub3" required/></td>
+    </tr>
+    <tr>
+        <td>Subject4</td>
+        <td><input type="number" size="5" name="sub4" required/></td>
+    </tr>
+    <tr>
+        <td>Subject5</td>
+        <td><input type="number" size="5" name="sub5" required/></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+         <td></td>
+         <td><input type="button" value="Calculate Result" onclick="calculate()"></td></tr>
+</table>
+</form>
+</center>
+</body>
+
+
+
+
+#result.js
+function calculate(){
+        var s1=document.frm.sub1.value;
+        var s2=document.frm.sub2.value;
+        var s3=document.frm.sub3.value;
+        var s4=document.frm.sub4.value;
+        var s5=document.frm.sub5.value;
+
+        var total = parseInt(s1)+ parseInt(s2)+parseInt(s3)+parseInt(s4)+parseInt(s5);
+        var percent = parseInt(total)/5;
+        var grade;
+
+        if(percent >= 80){
+        grade = "A+";
+        //request.setAttribute("grade", grade);
+    }
+    else if(percent >= 70 && percent <=79){
+        grade = "A";
+    }
+    else if(percent >=60 && percent <=69){
+        grade = "B+";
+    }
+    else if(percent >=50 && percent <=59){
+        grade = "B";
+    }
+    else if(percent <50){
+        grade = "C";
+}
+
+       alert("total Marks: "+total+"percentage: "+percent+"grade: "+grade);
+}
